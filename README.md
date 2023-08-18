@@ -8,9 +8,10 @@ Create a .env file and save the following into it:
 ```
 CLIENT_SECRET=
 PROJECT_ID=
+COLLECTION_ID=
 ```
 
-create an empty data.csv file in the root of your project
+create an empty `data.csv` file in the root of your project
 
 run with 
 ```

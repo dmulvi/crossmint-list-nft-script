@@ -11,11 +11,13 @@ const options = {
   }
 };
 
+const collectionId = process.env.COLLECTION_ID;
+
 let page = 49; //starting from page 1 
 let data = [];
 
 async function getData() {
-  const url = `https://www.crossmint.com/api/2022-06-09/collections/doodle-art/nfts?page=${page}&perPage=100`;
+  const url = `https://www.crossmint.com/api/2022-06-09/collections/${collectionId}/nfts?page=${page}&perPage=100`;
 
   try {
     const response = await fetch(url, options);
@@ -27,7 +29,7 @@ async function getData() {
       page++;
       getData(); //recursively get next page data
     } else {
-      console.log(JSON.stringify(json));
+      console.log(JSON.stringify(json)); // log error
       console.log('Writing data to CSV...')
       createCSV(data);
     }
