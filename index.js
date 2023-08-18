@@ -27,6 +27,7 @@ async function getData() {
       page++;
       getData(); //recursively get next page data
     } else {
+      console.log(JSON.stringify(json));
       console.log('Writing data to CSV...')
       createCSV(data);
     }
